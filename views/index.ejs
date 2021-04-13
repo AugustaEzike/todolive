@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> MY TO DO APP</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/solid.min.css">
+        <link rel="stylesheet" href="css-styles/styles.css">
+    </head>
+    <body>
+       <h1>this is the body of my app</h1>
+
+       <form action="/todo" method="POST"> <!-- when the user creates a todo and submits, redirect back to /todo-->
+           
+           <input type="text" placeholder="State Mission" name="" id="">
+           <button type="submit">Create</button>
+
+       </form> 
+       <h2> What's Your Main Focus For Today?</h2> 
+
+       <ul class="todos">
+        <!-- Loop through quotes -->
+        <% for(let i = 0; i < todos.length; i++) {%>
+            <li class="todo" >
+                <input type="checkbox" name="" id="completed">
+                <!-- Output id from the iterated todo object -->
+                <span><%= todos[i]._id %></span>
+                <button>Edit</button>
+                <button id="delete-btn">Delete</button>
+                <!--<i class="fas fa-trash"></i>
+                <i class="fas fa-pen"></i>-->
+            </li>
+        <% } %>
+
+       </ul>
+       
+        <script src="/main.js" async defer></script>
+    </body>
+</html>
