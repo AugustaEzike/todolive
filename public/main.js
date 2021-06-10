@@ -4,8 +4,8 @@
 
 const deleteBtn = document.querySelectorAll(".fa-trash")
 
-const completedMission = document.querySelectorAll(".mission span")
-const uncompletedMission = document.querySelectorAll(".mission span.completed")
+const completedMission = document.querySelectorAll(".thisMission span")
+const uncompletedMission = document.querySelectorAll(".thisMission span.completed")
 
 //trigger PUT request with fetch API. fetch(endpoint, options)
 // edit.addEventListener('click', update => {{
@@ -45,7 +45,8 @@ Array.from(completedMission).forEach((el) => {
 })
 
 async function markComplete(){
-    const missionText = this.parentNode.childNodes[0].mission
+    console.log(this.innerText)
+    const missionText = this.innerText
     try {
         const response = await fetch('completeMission', {
             method: 'put',
@@ -55,7 +56,7 @@ async function markComplete(){
             })
         })
         const data = await response.json()
-        console.log(missionText)
+        
         location.reload()
     } catch (error) {
         console.log(error)
@@ -69,7 +70,7 @@ Array.from(uncompletedMission).forEach((el) => {
 })
 
 async function undo(){
-    const missionText = this.parentNode.childNodes[0].mission
+    const missionText = this.innerText
     try {
         const response = await fetch('undo', {
             method: 'put',
@@ -79,7 +80,7 @@ async function undo(){
             })
         })
         const data = await response.json()
-        console.log(missionText)
+        
         location.reload()
     } catch (error) {
         console.log(error)

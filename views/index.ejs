@@ -23,15 +23,19 @@
      <ul class="missions">
         <!-- loop through quotes-->
         <% for(let i = 0; i < missions.length; i++) {%>
-            <li class="mission cursor-btn">
+            <li class="thisMission cursor-btn">
                 <!-- Output name from the iterated todo object -->
+                <input type="checkbox" class="checkbox-round" name="" id="">
                 <% if(missions[i].completed === true) {%>
                 <span class="completed"><%=missions[i].mission%></span>
                 <% }else { %>
                 <span><%=missions[i].mission%></span>
                 <%}%>
                 <!--i class="fas fa-pen"></i-->
-                <i class="fas fa-trash"></i>
+                <button>
+                  Delete  <i class="fas fa-trash"></i>
+                </button>
+                
 
             </li>  
         <% } %>
