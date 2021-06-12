@@ -1,12 +1,12 @@
-const express = require('express'); //to build api
+const express = require('express'); //to build/handle crud api
 const bodyParser = require('body-parser')
 const app = express();
 const MongoClient = require('mongodb').MongoClient
 const mongoose = require('mongoose') // to talk to the database
 const passport = require('passport') //talks to microsoft identity platform
 const session = require('express-session')//to stay logged in across pages
-const MongoDBStore = require('connect-mongodb-session')(session)
-const connectDB = require('./config/database')
+const MongoDBStore = require('connect-mongodb-session')(session) //passes session into the database
+const connectDB = require('./config/database')//to connect to our database
 const authRoutes = require('./routes/auth')
 const homeRoutes = require('.routes/home')
 const todoRoutes = require('./routes/todos')
@@ -19,11 +19,11 @@ require('./config/passport')(passport)
 connectDB()
 
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static('public'))//to grab static files
 app.use(express.urlencoded({ extended: true })) // helps to look at data that has been sent with our request. in the past, used bodyparser but that is now used in express
 app.use(express.json())
 
-//Sessions
+//Sessions 
 app.use(
     session({
         secret: 'keyboard cat',

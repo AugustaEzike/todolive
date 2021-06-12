@@ -15,7 +15,7 @@ router.get('/login',
         )(req, res, next);
     },
     function(req, res) {
-        console.log('Login was called in the sameple');
+        console.log('Login was called in the sample');
         res.redirect('/todos');
 });
 
